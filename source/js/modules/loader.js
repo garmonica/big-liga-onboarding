@@ -23,3 +23,27 @@ if (document.body.clientWidth > TABLET_WIDTH) {
 
   window.addEventListener('keydown', onEnterKeydown);
 }
+
+if (document.body.clientWidth <= TABLET_WIDTH) {
+  loaderText.innerText = 'Кликните на экран';
+
+  const loader = document.querySelector('.header--loader');
+  if (loader) {
+    const onLoaderClick = (evt) => {
+      evt.stopPropagation();
+      header.classList.remove('header--loader');
+      header.classList.add('header--closed');
+      introHeading.classList.add('intro__heading--opened');
+      loader.removeEventListener('click', onLoaderClick);
+    };
+
+    loader.addEventListener('click', onLoaderClick);
+  }
+
+  document.addEventListener('click', (evt) => {
+    if (evt.target.closest('.header__logo')) {
+      return;
+    }
+    details.classList.toggle('details--blue-opened');
+  });
+}

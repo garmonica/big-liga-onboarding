@@ -1,6 +1,10 @@
 .header {
   background: $color-default-white;
   z-index: 100;
+
+  @include viewport--md {
+    margin-bottom: 0;
+  }
 }
 
 .header__wrapper {
@@ -35,6 +39,10 @@
     max-width: 800px;
     margin: 0 auto;
     animation: fromtop 1.5s ease;
+
+    @include viewport--md {
+      max-width: 550px;
+    }
   }
 
   .header__icon {

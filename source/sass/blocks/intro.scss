@@ -3,6 +3,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 190px;
+
+  @include viewport--md {
+    padding-bottom: 100px;
+  }
 }
 
 .intro__heading {
@@ -15,6 +19,10 @@
   color: $color-neon-blue;
   max-width: 580px;
   margin-right: 10px;
+
+  @include viewport--md {
+    padding-top: 0;
+  }
 
   &--opened {
     display: block;
