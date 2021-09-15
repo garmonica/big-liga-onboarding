@@ -532,6 +532,9 @@ button,
 .header {
   background: #ffffff;
   z-index: 100; }
+  @media (max-width: 1023px) {
+    .header {
+      margin-bottom: 0; } }
 
 .header__wrapper {
   padding: 25px 35px; }
@@ -571,6 +574,9 @@ button,
     margin: 0 auto;
     -webkit-animation: fromtop 1.5s ease;
             animation: fromtop 1.5s ease; }
+    @media (max-width: 1023px) {
+      .header--loader .header__logo {
+        max-width: 550px; } }
   .header--loader .header__icon {
     width: 100%;
     height: auto; }
@@ -683,6 +689,9 @@ button,
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 190px; }
+  @media (max-width: 1023px) {
+    .intro {
+      padding-bottom: 100px; } }
 
 .intro__heading {
   margin: 0;
@@ -694,6 +703,9 @@ button,
   color: #2c39f2;
   max-width: 580px;
   margin-right: 10px; }
+  @media (max-width: 1023px) {
+    .intro__heading {
+      padding-top: 0; } }
   .intro__heading--opened {
     display: block;
     -webkit-animation: fromleft 1.5s ease;
@@ -763,10 +775,51 @@ button,
             transform: translateY(0);
     opacity: 1; } }
 
+@media (max-width: 1023px) {
+  .details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #2c39f2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    padding-bottom: 185px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: 1s;
+    transition: 1s; }
+    .details .details__text {
+      color: #ffffff; }
+    .details .details__icon,
+    .details .details__icon--dino-detail {
+      fill: #ffffff; }
+    .details .details__icon--dino-flag {
+      stroke: #000000; } }
+
 .details--opened {
   display: block;
   -webkit-animation: frombottom 1.5s ease;
           animation: frombottom 1.5s ease; }
+
+@media (max-width: 1023px) {
+  .details--blue-opened {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation: blueleft 1s ease;
+            animation: blueleft 1s ease; } }
 
 .details__wrapper {
   position: relative;
