@@ -8,11 +8,57 @@
 }
 
 .header__wrapper {
-  padding: 25px 35px;
+  padding: 15px 25px;
+
+
+  @include viewport--sm {
+    padding: 15px 16px;
+  }
+}
+
+.header__logo {
+  display: inline-block;
+  vertical-align: baseline;
+  padding: 10px;
+  animation: transparency $default-transition-settings;
+  transition: 0.8s;
+  position: relative;
+  outline: none;
+
+  @include viewport--lg-only {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 52%;
+      transform: translateX(-52%);
+      width: 0;
+      height: 2px;
+      background: $color-neon-blue;
+      transition: 0.4s;
+    }
+
+    &:hover .header__icon,
+    &:focus .header__icon {
+      transform: scale(1.1);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: calc(100%);
+    }
+
+    &:active,
+    &:active .header__icon {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+  }
 }
 
 .header__icon {
   vertical-align: top;
+  transition: 0.4s;
 }
 
 .header__text {
@@ -35,10 +81,12 @@
   }
 
   .header__logo {
+    padding: 0;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    animation: fromtop 1.5s ease;
+    animation: fromtop $default-transition-settings;
+    pointer-events: none;
 
     @include viewport--md {
       max-width: 550px;
@@ -52,59 +100,19 @@
 
   .header__text {
     display: block;
+    text-align: center;
+    width: 100%;
     font-size: 24px;
-    font-weight: 22px;
+    line-height: 26px;
     position: absolute;
     bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     animation: transparency 4s ease;
-  }
-}
 
-.header--closed {
-  .header__logo {
-    animation: transparency 1.5s ease;
-    transition: 3s;
-  }
-}
-
-@keyframes enlarging {
-  0% {
-    transform: translateX(-50%) scale(0);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes transparency {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fromtop {
-  0% {
-    transform: translateY(-2000px);
-  }
-
-  70% {
-    transform: translateY(30px);
-  }
-
-  90% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0);
+    @include viewport--sm {
+      font-size: 20px;
+      line-height: 22px;
+    }
   }
 }

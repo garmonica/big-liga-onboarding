@@ -1,43 +1,36 @@
 .details {
   @include viewport--md {
+    padding: 20px;
+    padding-bottom: 235px;
     display: flex;
     background: $color-neon-blue;
     position: absolute;
     top: 0;
     left: 0;
+    min-height: 700px;
     height: 100%;
     width: 100vw;
-    padding-bottom: 185px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: translateX(-100%);
     transition: 1s;
-
-    .details__text {
-      color: $color-default-white;
-    }
-
-    .details__icon,
-    .details__icon--dino-detail {
-      fill: $color-default-white;
-    }
-
-    .details__icon--dino-flag {
-      stroke: $color-default-black;
-    }
   }
 
-  &--opened {
-    display: block;
-    animation: frombottom 1.5s ease;
+  @include viewport--sm {
+    min-height: 600px;
+    padding-bottom: 150px;
   }
-}
 
-.details--blue-opened {
-  @include viewport--md {
-    transform: translateX(0);
-    animation: blueleft 1s ease;
+  &--animated {
+    animation: frombottom $default-transition-settings;
+  }
+
+  &--slide {
+    @include viewport--md {
+      transform: translateX(0);
+      animation: fromleft-slide $default-transition-settings;
+    }
   }
 }
 
@@ -48,38 +41,55 @@
   margin-bottom: 30px;
   display: flex;
   align-items: flex-end;
+
+  @include viewport--sm {
+    margin-left: 40px;
+  }
 }
 
-.details__icon--arrow {
+.details__icon--zigzag {
   position: absolute;
 
   &-1 {
     top: 135px;
     left: 0;
-    animation: moving-1 2.5s ease infinite;
+    animation: move-icon-1 $icons-dino-transition;
   }
 
   &-2 {
     top: 110px;
     left: 95px;
-    animation: moving-2 2.5s ease infinite;
+    animation: move-icon-2 $icons-dino-transition;
   }
 
   &-3 {
     top: 35px;
     left: 160px;
-    animation: moving-3 2.5s ease infinite;
+    animation: move-icon-3 $icons-dino-transition;
   }
 
   &-4 {
     top: 225px;
     left: 195px;
-    animation: moving-4 2.5s ease infinite;
+    animation: move-icon-4 $icons-dino-transition;
   }
 }
 
-.details__icon--dino {
+.details__icon--main {
   margin-left: 100px;
+}
+
+.details__icon,
+.details__icon-elem {
+  @include viewport--md {
+    fill: $color-default-white;
+  }
+}
+
+.details__icon-elem--flag {
+  @include viewport--md {
+    stroke: $color-default-black;
+  }
 }
 
 .details__text {
@@ -90,106 +100,22 @@
   font-size: 30px;
   line-height: 40px;
   color: $color-default-black;
-}
 
-@keyframes moving-1 {
-  0% {
-    transform: translate(0, 0);
+  @include viewport--md {
+    color: $color-default-white;
   }
 
-  40% {
-    transform: translate(-5px, -18px);
-  }
-
-  70% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, 0);
+  @include viewport--sm {
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
-@keyframes moving-2 {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  40% {
-    transform: translate(-2px, -8px);
-  }
-
-  70% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes moving-3 {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  40% {
-    transform: translate(16px, -18px);
-  }
-
-  70% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes moving-4 {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  40% {
-    transform: translate(5px, -10px);
-  }
-
-  70% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes blueleft {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
+.details--nojs {
+  @include viewport--md {
+    position: static;
     transform: translateX(0);
-  }
-}
-
-@keyframes frombottom {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  40% {
-    transform: translateY(-30px);
-  }
-
-  70% {
-    transform: translateY(10px);
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+    margin-top: 40px;
+    padding-bottom: 40px;
   }
 }
