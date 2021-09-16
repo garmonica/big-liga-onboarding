@@ -19,6 +19,8 @@
   color: $color-neon-blue;
   max-width: 580px;
   margin-right: 10px;
+  animation: fromleft $default-transition-settings;
+  display: none;
 
   @include viewport--md {
     margin-right: 0;
@@ -30,8 +32,39 @@
     line-height: 48px;
     max-width: 450px;
   }
+}
 
-  &--animated {
-    animation: fromleft $default-transition-settings;
+.intro--show {
+  .intro__heading {
+    display: block;
+  }
+
+  .intro__details {
+    display: block;
+
+    @include viewport--md {
+      display: flex;
+    }
+  }
+}
+
+.intro--nojs {
+  padding-bottom: 35px;
+
+  .intro__heading {
+    display: block;
+  }
+
+  .intro__details {
+    display: block;
+
+    @include viewport--md {
+      display: flex;
+      position: static;
+      transform: translateX(0);
+      margin-top: 40px;
+      padding-bottom: 40px;
+      animation: frombottom $default-transition-settings;
+    }
   }
 }
