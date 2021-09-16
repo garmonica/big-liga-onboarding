@@ -10,6 +10,5 @@ if (document.body.clientWidth <= TABLET_WIDTH && details) {
     details.classList.toggle('details--slide');
   };
 
-  window.addEventListener('click', onScreenClick);
-  window.addEventListener('touchmove', onScreenClick);
+  document.addEventListener('click', onScreenClick);
 }
